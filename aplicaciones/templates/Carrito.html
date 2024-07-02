@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="cart-container">
+        <div class="cart" id="cart">
+            {% for isbn, item in request.session.carrito.items %}
+            <div class="cart-item">
+                <div class="item-details">
+                    <h2>{{ item.Titulo }}</h2>
+                    <p>Cantidad: {{ item.Cantidad }}</p>
+                    <p>Precio: ${{ item.Acumulado }}</p>
+                </div>
+                <div class="cart-actions">
+                    <a href="{% url 'eliminar_libro' isbn=isbn %}" class="btn eliminar-btn">Eliminar</a>
+                    <a href="{% url 'restar_libro' isbn=isbn %}" class="btn restar-btn">-</a>
+                    <a href="{% url 'agregar_libro' isbn=isbn %}" class="btn restar-btn">+</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="total">
+            Total: $<span id="total">{{ totalCarrito }}</span>
+        </div>
+        <a href="{% url 'checkout' %}" class="checkout-btn">Realizar Pedido</a>
+    </div>
+{% endblock %}

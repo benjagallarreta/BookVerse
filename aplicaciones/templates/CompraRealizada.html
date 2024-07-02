@@ -1,0 +1,28 @@
+{% extends 'baseCompra.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <title>Pedido Realizado</title>
+    <link rel="stylesheet" href="{% static 'css/compraRealizada.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>¡FELICIDADES!</h1>
+        <p>Su pedido se ha realizado con éxito</p>
+        <p class="code">Su código de pedido es: <span id="order-code"></span></p>
+        <h4>Revise su correo electrónico para proceder al pago. Muchas Gracias por usar BookVerse! :D</h4>
+        <h4>No recargue la pestaña, será redigirgido a la página de inicio.</h4>
+    </div>
+    <script>
+        function generateRandomCode(length) {
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+        document.getElementById('order-code').innerText = generateRandomCode(10);
+    </script>
+</body>
+{% endblock %}

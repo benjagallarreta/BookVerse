@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- HOME-->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+4FmrP6Ph/6zHO3/bboV5B/02k8Zg/YfFjFf3I5JiS+teRY" crossorigin="anonymous">
+        <link href="{% static 'css/Home.css' %}" rel="stylesheet" /> 
+        <link href="{% static 'css/Carrito.css' %}" rel="stylesheet" /> 
+        <link href="{% static 'css/navbar.css' %}" rel="stylesheet" />  
+    </head>
+
+    <body>
+        <header>
+            {% block navbar %}
+            {% include 'navbar.html' %}
+            {% endblock %}
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            {% block footer %}
+            {% include 'footer.html' %}
+            {% endblock %}
+        </footer>
+    </body>
+</html>
